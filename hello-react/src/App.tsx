@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "./App.css";
 import Button from "./Button";
+import Counter from "./Counter";
 import List from "./List";
 
 // import { Fragment } from "react";
@@ -22,11 +24,27 @@ function App() {
   // aDiv.appendChild(aH2);
   // aDiv.appendChild(aP);
 
+  const [counter, setCounter] = useState(0);
+
   return (
     <>
       <div id="aDiv" className="divs">
         <h2>Web 3</h2>
         <p>David Breckx</p>
+        <p>{counter}</p>
+
+        <button
+          onClick={() => {
+            setCounter((prevValue) => prevValue - 1);
+            setCounter((prevValue) => prevValue - 1);
+            setCounter((prevValue) => prevValue - 1);
+          }}>
+          Verlaag vanuit App
+        </button>
+
+        <Counter updateCounter={setCounter} />
+        <Counter updateCounter={setCounter} />
+
         <img></img>
         <Test url={imageUrl} width={100} height={100} />
       </div>
