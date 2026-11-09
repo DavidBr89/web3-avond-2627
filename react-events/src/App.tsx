@@ -1,7 +1,7 @@
 // import "./App.css";
 
 // import { useEffect, useState } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./shared/components/Button";
 import EventList from "./features/events/components/EventList";
 
@@ -11,15 +11,19 @@ function App() {
   // console.log(counter);
 
   // useEffect(() => {
-  //   const timerId = setInterval(() => {
-  //     console.log("tick");
-  //   }, 1000);
+  //   console.log("test");
+  // });
 
-  //   // Cleanup functie
-  //   return () => {
-  //     clearInterval(timerId);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      console.log("tick");
+    }, 1000);
+
+    // // Cleanup functie
+    return () => {
+      clearInterval(timerId);
+    };
+  }, []);
 
   return (
     <div>
