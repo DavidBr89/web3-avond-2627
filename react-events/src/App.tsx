@@ -3,10 +3,12 @@
 // import { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
 import Button from "./shared/components/Button";
-import EventList from "./features/events/components/EventList";
+import { useNavigate } from "react-router";
 
 function App() {
   const [counter, setCounter] = useState(0);
+
+  const navigate = useNavigate();
 
   // console.log(counter);
 
@@ -27,8 +29,6 @@ function App() {
 
   return (
     <div>
-      <EventList />
-
       <div className="bg-zinc-800 min-h-screen flex justify-between items-center p-8">
         <p className="text-3xl font-light text-white">{counter}</p>
 
@@ -40,7 +40,12 @@ function App() {
           className="bg-amber-600">
           Test 1
         </Button>
-        <Button>Test 2</Button>
+        <Button
+          onClick={() => {
+            navigate("/events");
+          }}>
+          Ga naar events
+        </Button>
       </div>
     </div>
   );

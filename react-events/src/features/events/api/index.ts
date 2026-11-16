@@ -13,8 +13,19 @@ export const getEvents = async (signal?: AbortSignal) => {
   return response.data;
 };
 
-export const getEventById = async (id: string) =>
-  await ticketMasterApi.get<TMEvent>(`/events/${id}`);
+export const getEventById = async (
+  id: string | undefined,
+  signal?: AbortSignal,
+) => {
+  if (id === undefined) {
+    throw new Error("Foutieve id");
+  }
+
+  const response = await ticketMasterApi.get<TMEvent>(`/events/${id}`, {
+    signal,
+  });
+  return response.data;
+};
 
 // export const createEvent = async () => {
 //   const response = await Axios.post(
